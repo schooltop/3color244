@@ -17989,3 +17989,289 @@ Processing by Admin::EmployeesController#index as HTML
 Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.5ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: [SIMPLE_FORM] SimpleForm.form_class= is deprecated and will be removed in 4.x. Use SimpleForm.default_form_class= instead (called from block in <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/simple_form_semantic.rb:64)
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `employees` CASCADE[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE `employees` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL COMMENT 'email', `encrypted_password` varchar(255) DEFAULT '' NOT NULL COMMENT '密码', `parent_id` int DEFAULT 0 COMMENT '上级ID', `created_at` datetime NOT NULL COMMENT '创建日期', `updated_at` datetime NOT NULL COMMENT '修改日期', `name` varchar(20) COMMENT '名字', `department_id` int DEFAULT 0 NOT NULL COMMENT '部门ID', `position_id` int DEFAULT 0 NOT NULL COMMENT '职位： 0:其它 6:财务 7:产品经理....', `position_level` int DEFAULT 0 NOT NULL COMMENT '行政级别 0:员工 1:主管 2:经理 3:总监', `job_status` int DEFAULT 1 NOT NULL COMMENT '在职状态, 1:在职, -1:离职', `weight` float(24) DEFAULT 1.0 NOT NULL COMMENT '权重', `joined_on` date COMMENT '入职日期', `gender` int COMMENT '性别 0:男 1:女', `mobile` varchar(30) COMMENT '手机', `qq` varchar(30) COMMENT 'QQ', `office_tel` varchar(30) COMMENT '公司电话', `dob` date COMMENT '生日', `remember_created_at` datetime COMMENT '记住创建日期', `deputy_department_id` int DEFAULT 0 COMMENT '副部门', `avatar` varchar(100) COMMENT '员工头像', `assign_count` int DEFAULT 0 COMMENT '分配点数', `handover_id` int DEFAULT 0 COMMENT '交接人', UNIQUE INDEX `index_employees_on_email` USING btree (`email`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '员工表'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `roles` CASCADE[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE `roles` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) COMMENT '角色名称', `name_cn` varchar(255) COMMENT '中文名', `created_at` datetime COMMENT '创建日期', `updated_at` datetime COMMENT '修改日期',  INDEX `index_roles_on_name` USING btree (`name`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '角色表'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `employees_roles` CASCADE[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE `employees_roles` (`employee_id` int COMMENT '员工ID', `role_id` int COMMENT '员工权限',  INDEX `index_employees_roles_on_employee_id_and_role_id` USING btree (`employee_id`, `role_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '员工权限表'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `employees` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`) VALUES ('107422244@qq.com', '$2a$10$b1dZZ/QHKmu3rU.G3ytuKO9AQYebCVHjsCK/Wm//tF0/6JWeliEKW', '2018-07-25 23:15:28', '2018-07-25 23:15:28', 'jamst')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: [SIMPLE_FORM] SimpleForm.form_class= is deprecated and will be removed in 4.x. Use SimpleForm.default_form_class= instead (called from block in <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/simple_form_semantic.rb:64)
+Started GET "/" for 127.0.0.1 at 2018-07-25 23:16:14 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lijiangfeng/.rvm/gems/ruby-2.6.0-preview2@3color244/gems/railties-5.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lijiangfeng/.rvm/gems/ruby-2.6.0-preview2@3color244/gems/railties-5.1.2/lib/rails/templates/rails/welcome/index.html.erb (7.1ms)
+Completed 200 OK in 32ms (Views: 16.2ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-07-25 23:16:14 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/contacts" for 127.0.0.1 at 2018-07-25 23:17:17 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/admin/contacts"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/employees" for 127.0.0.1 at 2018-07-25 23:17:33 +0800
+Processing by Admin::EmployeesController#index as HTML
+Completed 401 Unauthorized in 26ms
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-07-25 23:17:33 +0800
+Processing by Admin::SessionsController#new as HTML
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  Rendering admin/sessions/new.html.erb
+  Rendered admin/sessions/new.html.erb (1350.1ms)
+Completed 200 OK in 1425ms (Views: 1353.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-07-25 23:17:37 +0800
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ifgcud7aIq/LI6mfQq4Z9mt25ACVXblD/iOBoX360iTVb9wWh9R+cnX1wapsGrKJpDuihpgYMDOYhvGJG5MLzw==", "employee"=>{"email"=>"107422244@qq.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"登录"}
+  [1m[36mEmployee Load (1.1ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`email` = '107422244@qq.com' ORDER BY `employees`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/admin/employees
+Completed 302 Found in 116ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/employees" for 127.0.0.1 at 2018-07-25 23:17:37 +0800
+Processing by Admin::EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/index.html.erb within layouts/application
+  Rendered admin/employees/_search_form.html.erb (13.9ms)
+  [1m[36mEmployee Load (0.7ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` LIMIT 10 OFFSET 0[0m
+  Rendered collection of admin/employees/_list.html.erb [1 times] (1.7ms)
+  Rendered admin/employees/index.html.erb within layouts/application (29.6ms)
+  Rendered shared/admin/_top_bar.html.erb (1.6ms)
+  Rendered shared/admin/_sidebar.html.erb (0.9ms)
+Completed 200 OK in 94ms (Views: 82.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-25 23:18:20 +0800
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:18:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/admin/contacts" for 127.0.0.1 at 2018-07-25 23:18:32 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/admin/contacts"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/" for 127.0.0.1 at 2018-07-25 23:18:35 +0800
+Processing by Admin::EmployeesController#desboart as HTML
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/desboart.html.erb within layouts/application
+  Rendered admin/employees/desboart.html.erb within layouts/application (0.4ms)
+  Rendered shared/admin/_top_bar.html.erb (342.6ms)
+Completed 500 Internal Server Error in 422ms (ActiveRecord: 3.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_employee_session_path' for #<#<Class:0x00007fb731b18f38>:0x00007fb731b10900>
+Did you mean?  destroy_session_path):
+    10:     </a>
+    11:     <div id="user" class="ui popup">
+    12:       <div class="ui secondary vertical menu">
+    13:         <%= link_to destroy_employee_session_path, method: 'delete', class: 'item' do %>
+    14:           退出系统 <i class="sign out icon"></i>
+    15:         <% end %>
+    16:       </div>
+  
+app/views/shared/admin/_top_bar.html.erb:13:in `_app_views_shared_admin__top_bar_html_erb__28514157449011696_70212393629340'
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__321664494155988057_70212394685540'
+Started GET "/admin/employees" for 127.0.0.1 at 2018-07-25 23:18:54 +0800
+Processing by Admin::EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.8ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/index.html.erb within layouts/application
+  Rendered admin/employees/_search_form.html.erb (5.2ms)
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` LIMIT 10 OFFSET 0[0m
+  Rendered collection of admin/employees/_list.html.erb [1 times] (1.4ms)
+  Rendered admin/employees/index.html.erb within layouts/application (14.9ms)
+  Rendered shared/admin/_top_bar.html.erb (327.4ms)
+Completed 500 Internal Server Error in 384ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_employee_session_path' for #<#<Class:0x00007fb731b18f38>:0x00007fb72dd52910>
+Did you mean?  destroy_session_path):
+    10:     </a>
+    11:     <div id="user" class="ui popup">
+    12:       <div class="ui secondary vertical menu">
+    13:         <%= link_to destroy_employee_session_path, method: 'delete', class: 'item' do %>
+    14:           退出系统 <i class="sign out icon"></i>
+    15:         <% end %>
+    16:       </div>
+  
+app/views/shared/admin/_top_bar.html.erb:13:in `_app_views_shared_admin__top_bar_html_erb__28514157449011696_70212361208540'
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__321664494155988057_70212362321960'
+Started GET "/admin/employees" for 127.0.0.1 at 2018-07-25 23:18:58 +0800
+Processing by Admin::EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.7ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/index.html.erb within layouts/application
+  Rendered admin/employees/_search_form.html.erb (4.8ms)
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` LIMIT 10 OFFSET 0[0m
+  Rendered collection of admin/employees/_list.html.erb [1 times] (0.8ms)
+  Rendered admin/employees/index.html.erb within layouts/application (13.2ms)
+  Rendered shared/admin/_top_bar.html.erb (320.0ms)
+Completed 500 Internal Server Error in 370ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_employee_session_path' for #<#<Class:0x00007fb731b18f38>:0x00007fb72dcca2e0>
+Did you mean?  destroy_session_path):
+    10:     </a>
+    11:     <div id="user" class="ui popup">
+    12:       <div class="ui secondary vertical menu">
+    13:         <%= link_to destroy_employee_session_path, method: 'delete', class: 'item' do %>
+    14:           退出系统 <i class="sign out icon"></i>
+    15:         <% end %>
+    16:       </div>
+  
+app/views/shared/admin/_top_bar.html.erb:13:in `_app_views_shared_admin__top_bar_html_erb__28514157449011696_70212372052340'
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__321664494155988057_70212362034960'
+Started GET "/admin/employees" for 127.0.0.1 at 2018-07-25 23:19:00 +0800
+Processing by Admin::EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.6ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/index.html.erb within layouts/application
+  Rendered admin/employees/_search_form.html.erb (11.8ms)
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` LIMIT 10 OFFSET 0[0m
+  Rendered collection of admin/employees/_list.html.erb [1 times] (3.6ms)
+  Rendered admin/employees/index.html.erb within layouts/application (26.2ms)
+  Rendered shared/admin/_top_bar.html.erb (328.2ms)
+Completed 500 Internal Server Error in 415ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_employee_session_path' for #<#<Class:0x00007fb731b18f38>:0x00007fb7319d0590>
+Did you mean?  destroy_session_path):
+    10:     </a>
+    11:     <div id="user" class="ui popup">
+    12:       <div class="ui secondary vertical menu">
+    13:         <%= link_to destroy_employee_session_path, method: 'delete', class: 'item' do %>
+    14:           退出系统 <i class="sign out icon"></i>
+    15:         <% end %>
+    16:       </div>
+  
+app/views/shared/admin/_top_bar.html.erb:13:in `_app_views_shared_admin__top_bar_html_erb__28514157449011696_70212366231160'
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__321664494155988057_70212393893660'
+Started GET "/admin/employees" for 127.0.0.1 at 2018-07-25 23:19:30 +0800
+Processing by Admin::EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/index.html.erb within layouts/application
+  Rendered admin/employees/_search_form.html.erb (5.5ms)
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` LIMIT 10 OFFSET 0[0m
+  Rendered collection of admin/employees/_list.html.erb [1 times] (0.8ms)
+  Rendered admin/employees/index.html.erb within layouts/application (15.1ms)
+  Rendered shared/admin/_top_bar.html.erb (3.2ms)
+  Rendered shared/admin/_sidebar.html.erb (0.8ms)
+Completed 200 OK in 87ms (Views: 54.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-25 23:21:11 +0800
+  
+ArgumentError ('/admin/employees' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:19:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/" for 127.0.0.1 at 2018-07-25 23:21:33 +0800
+Processing by Admin::EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` WHERE `employees`.`id` = 1 ORDER BY `employees`.`id` ASC LIMIT 1[0m
+  Rendering admin/employees/index.html.erb within layouts/application
+  Rendered admin/employees/_search_form.html.erb (4.3ms)
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT  `employees`.* FROM `employees` LIMIT 10 OFFSET 0[0m
+  Rendered collection of admin/employees/_list.html.erb [1 times] (0.9ms)
+  Rendered admin/employees/index.html.erb within layouts/application (12.9ms)
+  Rendered shared/admin/_top_bar.html.erb (1.7ms)
+  Rendered shared/admin/_sidebar.html.erb (0.8ms)
+Completed 200 OK in 71ms (Views: 42.5ms | ActiveRecord: 2.6ms)
+
+
