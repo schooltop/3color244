@@ -18541,3 +18541,121 @@ DEPRECATION WARNING: [SIMPLE_FORM] SimpleForm.form_class= is deprecated and will
   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[35m (7.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS `3color244`[0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: [SIMPLE_FORM] SimpleForm.form_class= is deprecated and will be removed in 4.x. Use SimpleForm.default_form_class= instead (called from block in <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/simple_form_semantic.rb:64)
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK(6967256830357728975, 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreatePictures (20170720030607)
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE `pictures` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `content` text COMMENT '简介', `category_id` int COMMENT '分类', `user_id` int COMMENT '作者', `vendor_id` int DEFAULT 1 COMMENT '商家', `employee_id` int COMMENT '管理人员', `view_count` int COMMENT '访问次数', `nice_count` int COMMENT '投票数', `mp3` int COMMENT '语音介绍', `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_pictures_on_category_id`  (`category_id`),  INDEX `index_pictures_on_user_id`  (`user_id`),  INDEX `index_pictures_on_vendor_id`  (`vendor_id`),  INDEX `index_pictures_on_employee_id`  (`employee_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170720030607')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArticles (20170722085349)
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE `articles` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `content` text, `cover_img` varchar(255), `category_id` bigint COMMENT '分类', `activity_id` bigint COMMENT '活动', `view_count` int, `vendor_id` bigint DEFAULT 1 COMMENT '商家', `seq` int DEFAULT 10 COMMENT '排序', `mp3` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_articles_on_category_id`  (`category_id`),  INDEX `index_articles_on_activity_id`  (`activity_id`),  INDEX `index_articles_on_vendor_id`  (`vendor_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170722085349')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20170722090840)
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `content` text, `article_id` int, `picture_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170722090840')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20170729032928)
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `mode` varchar(255), `parent_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170729032928')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployees (20170729080219)
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE `employees` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `gender` varchar(255) COMMENT '性别', `parent_id` int, `mobile` varchar(255), `office_tel` varchar(255) COMMENT '分机号', `department_id` int COMMENT '部门', `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `discount` decimal(10,2) COMMENT '绩效', `employee_status` int COMMENT '员工状态', `joined_date` datetime COMMENT '加入时间') ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170729080219')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20170805132217)
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE `roles` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `parent_id` int, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170805132217')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePermissions (20170805132916)
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE `permissions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `action_tag` varchar(255), `controller_tag` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170805132916')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePermissionsRoles (20170805133002)
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE `permissions_roles` (`permission_id` bigint, `role_id` bigint,  INDEX `index_permissions_roles_on_permission_id`  (`permission_id`),  INDEX `index_permissions_roles_on_role_id`  (`role_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170805133002')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployeesRoles (20170805133118)
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE `employees_roles` (`role_id` bigint, `employee_id` bigint,  INDEX `index_employees_roles_on_role_id`  (`role_id`),  INDEX `index_employees_roles_on_employee_id`  (`employee_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170805133118')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVendors (20171023073014)
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE `vendors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `parent_name` varchar(255) COMMENT '总公司', `name` varchar(255) COMMENT '公司名称', `parent_id` int COMMENT 'parent_id', `employee_id` bigint DEFAULT 1 COMMENT '管理账号', `bd_id` int DEFAULT 1 COMMENT '代理商', `am_id` int DEFAULT 1 COMMENT '服务员工', `cs_id` int DEFAULT 1 COMMENT '客服', `mobile` varchar(30) COMMENT '联系人电话', `office_tel` varchar(30) COMMENT '公司电话', `email` varchar(255) COMMENT '邮箱', `website` varchar(255) COMMENT '网址', `content` text COMMENT '简介', `gps` varchar(255) COMMENT '位置', `city` varchar(255) COMMENT '城市', `place` varchar(255) COMMENT '地区', `address` varchar(255) COMMENT '地址', `cover_img` varchar(255) COMMENT '封面', `contract` varchar(255) COMMENT '合同', `discount` decimal(10,2) COMMENT '折扣', `category` int COMMENT '公司分类', `view_count` int COMMENT '关注数量', `seq` int DEFAULT 10 COMMENT '排序', `tag` varchar(255) COMMENT '标签', `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_vendors_on_employee_id`  (`employee_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171023073014')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAttachments (20171023073221)
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE `attachments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `attachment_entity_type` varchar(64), `attachment_entity_id` int, `path` varchar(255), `name` varchar(255), `content_type` varchar(255), `file_size` int, `created_by` varchar(64), `tag` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `attachments_entity_idx`  (`attachment_entity_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171023073221')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20171106064719)
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) COMMENT '名称', `idcard_no` varchar(255) COMMENT '身份证号', `item_no` varchar(255) COMMENT '序号', `gps` varchar(255) COMMENT '位置', `gps_list` text COMMENT '位置列表', `city` varchar(255) COMMENT '城市', `place` varchar(255) COMMENT '地区', `address` varchar(255) COMMENT '地址', `vendor_id` bigint DEFAULT 1 COMMENT '商家', `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `remember_created_at` datetime COMMENT '加入时间', `gender` int DEFAULT 0 COMMENT '性别 0:男 1:女', `mobile` varchar(30) COMMENT '手机', `mobile2` varchar(30) COMMENT '备用联系人电话', `qq` varchar(30) COMMENT 'QQ', `office_tel` varchar(30) COMMENT '公司电话', `bod` date COMMENT '生日', `failed_attempts` int DEFAULT 0 NOT NULL, `unlock_token` varchar(255), `locked_at` datetime, `content` text COMMENT '简介', `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_users_on_vendor_id`  (`vendor_id`)) ENGINE=InnoDB[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171106064719')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20180308092014)
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE `activities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) COMMENT '活动名称', `category_id` bigint COMMENT '分类', `activity_mod` varchar(255) COMMENT '活动模型', `vendor_id` bigint DEFAULT 1 COMMENT '商家', `status` int DEFAULT 0 COMMENT '-1删除,0默认状态,1开启,2完结', `base_tags` varchar(255) COMMENT '固定标签', `tags` varchar(255) COMMENT '自定义标签', `describe` text COMMENT '活动描述', `summary` text COMMENT '活动总结', `initiator` int COMMENT '发起人', `expected_cost` decimal(10,2) COMMENT '预计费用', `actual_cost` decimal(10,2) COMMENT '实际费用', `effect` int COMMENT '是否达到预期效果', `expiry_on` date COMMENT '有效日期', `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_activities_on_category_id`  (`category_id`),  INDEX `index_activities_on_vendor_id`  (`vendor_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180308092014')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivitiesPictures (20180909032251)
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE `activities_pictures` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `activity_id` bigint, `picture_id` bigint,  INDEX `index_activities_pictures_on_activity_id`  (`activity_id`),  INDEX `index_activities_pictures_on_picture_id`  (`picture_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180909032251')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-09-11 19:57:39', '2018-09-11 19:57:39')[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK(6967256830357728975)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `activities`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'activities'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `activities_pictures`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW CREATE TABLE `articles`[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'articles'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `attachments`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'attachments'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `categories`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'categories'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `comments`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'comments'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `employees`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'employees'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `employees_roles`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `permissions`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'permissions'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `permissions_roles`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `pictures`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'pictures'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `roles`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'roles'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `vendors`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'vendors'[0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: [SIMPLE_FORM] SimpleForm.form_class= is deprecated and will be removed in 4.x. Use SimpleForm.default_form_class= instead (called from block in <top (required)> at /Users/lijiangfeng/work/3color244/config/initializers/simple_form_semantic.rb:64)
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `employees` (`name`, `created_at`, `updated_at`, `email`, `encrypted_password`) VALUES ('jamst', '2018-09-11 19:57:47', '2018-09-11 19:57:47', '107422244@qq.com', '$2a$10$Pl4AP4ovMaZEeTncNK383e5QvG9g1r4hwSR0J7NB5uDXhfMaf8Dl.')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
