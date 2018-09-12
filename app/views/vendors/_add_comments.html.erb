@@ -1,0 +1,6 @@
+<h3 class="blog-title"><span>评论记录</span></h3>
+<ul class="am-list">
+  <% @vendor.comments&.order(id:"desc").each do |comment| %>
+    <p><%= comment.content %></p>
+  <% end %>
+</ul>
