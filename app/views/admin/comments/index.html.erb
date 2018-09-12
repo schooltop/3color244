@@ -1,0 +1,40 @@
+<div class="ui grid">
+  <div class="left floated fourteen wide column">
+    <h2><a href="javascript:history.back()"><i class="blue reply icon"></i></a>评论管理</h2>
+  </div>
+</div>
+ 
+  <%= render :partial => "search_form" %>
+
+
+<div class="ui blue segment">
+  <div class="ui grid">
+     <div class="left floated wide column">
+	<%= link_to '新增评论', new_admin_comment_path, class: 'ui primary   button', remote: true  %>
+     </div>
+  </div>
+
+ 
+  <table class="ui selectable striped celled table">
+     <thead>
+       <tr>
+         <th class="center aligned">CONTENT</th>
+         <th class="center aligned">Blog_ID</th>
+         <th class="center aligned">操作</th>
+       </tr>
+     </thead>
+  <tbody>
+    <%= render :partial => "list", :collection => @comments, :as => :comment %>
+  </tbody>
+  </table>
+
+  <span class="blue">
+      <%= page_entries_info(@comments) %>
+   </span>
+   <%= paginate(@comments, :theme => 'admin')%>
+  
+  
+
+</div>
+
+

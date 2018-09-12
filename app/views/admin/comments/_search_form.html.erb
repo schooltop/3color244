@@ -1,0 +1,10 @@
+<div class = "ui blue segent">
+	<%= simple_form_for @q,  url: admin_comments_path, method: :get, wrapper: 'semantic_search_form' do |f| %>
+	<div class="ui five column grid">
+		<%= f.input "blog_id-like", placeholder: 'blog_id' %>
+		<div class="column">
+			<%= f.submit '搜索', class: 'ui primary button' %>
+		</div>
+	</div>
+	<% end %>
+</div>

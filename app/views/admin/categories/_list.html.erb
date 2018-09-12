@@ -1,0 +1,13 @@
+<tr id="category_<%= category.id %>" >
+  <td class="top aligned">
+    <%= category.name %>
+  </td>
+  <td class="top aligned">
+   <%= category.parent_id %>
+  </td>
+  <td class="center aligned">
+    <%= link_to edit_admin_category_path(category.id) , remote: true, class: 'ui icon primary button', 'data-content' => '修改分类', 'data-variation' => 'inverted'  do%>
+      <i class="edit icon"></i>
+    <% end %>
+  </td>  
+</tr>

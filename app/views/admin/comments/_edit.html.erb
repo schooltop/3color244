@@ -1,0 +1,24 @@
+
+<%= simple_form_for @comment, url: admin_comment_path(@comment) , method: :put, remote: true, html: {id:"edit_point_vendor"} do |f| %>
+  
+    <div id="form_message" class="two fields red" style="margin-left: 15px;display:none;" ></div>
+
+    <div class="two fields">
+      <%= f.input :content %>
+    </div>
+    <div class="two fields">
+      <%= f.input :blog_id %>
+    </div>
+
+    <div class="field">
+      <div class="actions ">
+        <div class="ui button primary" id="commition" >提交</div>
+        <div class="ui cancel button">取消</div>
+      </div>
+    </div>
+
+<% end %>
+
+
+
+

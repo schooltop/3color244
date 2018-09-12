@@ -1,0 +1,19 @@
+<tr id="permis_<%= permission.id %>">
+  <td class="center aligned">
+    <span><%= permission.id%></span>
+  </td>
+  <td class="center aligned">
+    <%=  permission.name%>
+  </td>
+  <td class="center aligned">
+    <%= permission.action_tag %>
+  </td>
+  <td class="center aligned">
+    <%= permission.controller_tag %>
+  </td>
+  <td class="center aligned">
+    <%= link_to add_roles_admin_permissions_path(id:permission.id),remote: true, data: {content: '分配角色', variation: 'inverted'}, class: 'ui green icon button' do %>
+      <i class="edit icon"></i>
+    <% end %>
+  </td>
+</tr>

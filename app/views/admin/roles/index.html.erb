@@ -1,0 +1,34 @@
+<div class="ui grid">
+  <div class="left floated fourteen wide column">
+    <h2><a href="javascript:history.back()"><i class="blue reply icon"></i></a>角色管理</h2>
+  </div>
+</div>
+ 
+  
+
+
+<div class="ui blue segment">
+  
+  <table class="ui selectable striped celled table">
+     <thead>
+       <tr>
+         <th class="center aligned">ID</th>
+         <th class="center aligned">NAME</th>
+         <th class="center aligned">操作</th>
+       </tr>
+     </thead>
+  <tbody>
+    <%= render :partial => "list", :collection => @roles, :as => :role %>
+  </tbody>
+  </table>
+
+  <span class="blue">
+      <%= page_entries_info(@roles) %>
+   </span>
+   <%= paginate(@roles, :theme => 'admin')%>
+  
+  
+
+</div>
+
+

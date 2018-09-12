@@ -1,0 +1,11 @@
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+  <figure data-am-widget="figure" class="am am-figure am-figure-default "   data-am-figure="{  pureview: 'true' }">
+      <div id="container">  
+      <% @picture&.attachments.each do |attachment| %>     
+          <div><%= image_tag "#{attachment.path}"%><h3><%= attachment.name %></h3></div>
+      <% end if @picture %>    
+    </div> 
+  </figure>	
+</div>
+<!-- content end -->

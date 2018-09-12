@@ -1,0 +1,8 @@
+$('#addemployee_modal').remove();
+$('body').append('<div class="ui modal" id="addemployee_modal"><i class="close icon"></i><h2 class="ui dividing header">员工配置</h2><%= j(render 'add_employees') %></div>');
+$('#addemployee_modal').modal('setting', {autofocus: false}).modal('show');
+$('select.dropdown').dropdown();
+
+$("#commition").click(function(){
+    $("#add_employees").submit(); 
+});

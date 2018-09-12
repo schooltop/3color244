@@ -1,0 +1,14 @@
+<tr id="comment_<%= comment.id %>" >
+  <td class="top aligned">
+    <%= comment.content %>
+  </td>
+  <td class="top aligned">
+   <%= comment.blog_id %>
+  </td>
+  
+  <td class="center aligned">
+    <%= link_to edit_admin_comment_path(comment.id) , remote: true, class: 'ui icon primary button', 'data-content' => '修改评论', 'data-variation' => 'inverted'  do%>
+      <i class="edit icon"></i>
+    <% end %>
+  </td>  
+</tr>

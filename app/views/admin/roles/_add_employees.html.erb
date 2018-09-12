@@ -1,0 +1,22 @@
+
+<%= simple_form_for @role, url: save_employees_admin_roles_path(id:@role.id) , method: :post, remote: true, html: {id:"add_employees"} do |f| %>
+  
+    <div id="form_message" class="two fields red" style="margin-left: 15px;display:none;" ></div>
+
+    <% Employee.all.each do |employee|%>
+	    <label class="checkbox">
+	      <%= check_box_tag "role[employee_ids][]",employee.id,@role.employee_ids.include?(employee.id)%> <%= employee.name %>
+	    </label>
+	<% end %>
+	<br/>
+    
+    <div class="field">
+      <div class="actions ">
+        <div class="ui button primary" id="commition" >提交</div>
+        <div class="ui cancel button">取消</div>
+      </div>
+    </div>
+
+<% end %>
+
+

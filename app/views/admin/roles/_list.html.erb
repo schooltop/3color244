@@ -1,0 +1,17 @@
+<tr id="role_<%= role.id %>" >
+  <td class="top aligned">
+    <%= role.id %>
+  </td>
+  <td class="top aligned">
+   <%= role.name %>
+  </td>
+  <td class="center aligned">
+  <%= link_to add_permissions_admin_roles_path(id:role.id), remote: true, data: {content: '分配权限', variation: 'inverted'}, class: 'ui blue icon button' do %>
+  <i class="edit icon"></i>
+  <% end %>
+
+  <%= link_to add_employees_admin_roles_path(id:role.id), remote: true, data: {content: '员工配置', variation: 'inverted'}, class: 'ui green icon button' do %>
+  <i class="edit icon"></i>
+  <% end %>
+  </td>
+</tr>

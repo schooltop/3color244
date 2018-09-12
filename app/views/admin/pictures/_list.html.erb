@@ -1,0 +1,14 @@
+<tr id="picture_<%= picture.id %>">
+  <td class="center aligned">
+    <span><%= picture.id%></span>
+  </td>
+  <td class="center aligned">
+    <%= picture.name%> 
+  </td>
+  <td class="center aligned">
+    <%= picture&.category&.name %>
+  </td>
+  <td class="center aligned">
+    <%= link_to  "查看", admin_picture_path(picture), data: {content: '查看', variation: 'inverted'}, class: 'ui blue icon button' %>
+  </td>
+</tr>

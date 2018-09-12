@@ -1,0 +1,11 @@
+<div class="ui blue segment">
+	<h2><a href="javascript:history.back()"><i class="blue reply icon"></i></a><%= @article.title %></h2>
+	<% if @article.mpt.present? %>
+	  <audio autoplay="autoplay" controls="controls"loop="loop" preload="auto"
+	              src="<%= @article.mpt %>">
+	        你的浏览器不支持audio标签
+	  </audio>
+	<% end %>
+	<br/><br/>
+	<%= @article.content.html_safe %>
+</div>

@@ -1,0 +1,16 @@
+<% if @comment.errors.blank? %>
+  $("tbody").prepend('<%= j render('list', comment: @comment) %>');
+  $("#comment_modal").modal('hide');
+<% else %>
+  $(".field .red.pointing").remove();
+  <% @comment.errors.messages.each do |key, value| %>
+    $("#comment_<%= key %>").parent().addClass('error');
+    $("#comment_<%= key %>").parent().append("<div class='ui basic red pointing prompt label transition visible'><%= value[0] %></div>");
+  <% end %>
+<% end %>
+
+$(".button").popup();
+$(".icon").popup();
+$(document).find('.dropdown').dropdown({
+    on: 'hover'
+});

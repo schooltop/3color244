@@ -1,0 +1,8 @@
+$('#addpermission_modal').remove();
+$('body').append('<div class="ui modal" id="addpermission_modal"><i class="close icon"></i><h2 class="ui dividing header">分配权限</h2><%= j(render 'add_permissions') %></div>');
+$('#addpermission_modal').modal('setting', {autofocus: false}).modal('show');
+$('select.dropdown').dropdown();
+
+$("#commition").click(function(){
+    $("#add_permissions").submit(); 
+});

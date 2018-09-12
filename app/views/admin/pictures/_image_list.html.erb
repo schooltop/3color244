@@ -1,0 +1,17 @@
+ <% image_list.each_with_index do |att,i| %>
+      <% if i == 0 %>
+        <tr>
+      <% elsif (i >= 10 && i%10 == 0) %>
+        </tr><tr>
+      <% end %>
+        <td>
+           <a href="<%= att.path %>" target="_blank">
+           <%if att&.content_type&.include?("image")%>
+             <%= image_tag att.path, width: '100px', heigh: '50px', title: att.name %>
+           <% else%>
+             <div class="column"><i class="file icon"></i><%= att.name %></div>
+           <% end %></a>
+           <br/> 
+        </td>
+ <% end %>
+ </tr>

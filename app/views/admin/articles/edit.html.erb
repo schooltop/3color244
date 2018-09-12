@@ -1,0 +1,6 @@
+<div class="ui grid">
+  <div class="left floated fourteen wide column">
+    <h2><a href="javascript:history.back()"><i class="blue reply icon"></i></a>编辑文章</h2>
+  </div>
+</div>
+<%= render 'form', url: admin_article_path(@article), meth: :put %>

@@ -1,0 +1,75 @@
+
+<h2>新增图集</h2>
+<hr/>
+
+	<table class="ui selectable striped celled table">
+	  <tbody>
+		  <tr>
+		    <td colspan="10">
+		      <div class="row-fluid">
+		        <strong>新增图集</strong>
+		      </div>
+		    </td>
+		  </tr>
+
+		  <tr>
+		    <td colspan="10">
+		    <div id="image_preview"></div>
+		    <br/> 
+			  <div class="row-fluid">
+			  <%= form_for @picture, :method=>"post", :remote=>true , :url=>"upload_image", html: { id: 'image_preview_form',:multipart => true , autocomplete: "off"  } do |f| %>
+				图片：
+				<%= file_field_tag "draft_img", id: 'draft_img' %>
+				<%= hidden_field_tag :had_attachment_ids %>
+				<div class="ui primary button" onclick="new_problem_message_images()">添加</div>
+			  <% end %>
+			  <span id="draft_img_message" style="color: red"></span>
+		    </div>
+		    </td>
+		  </tr>
+
+		  <tr>
+		    <td colspan="10">
+		    <%= form_for(@picture, :url => {:action =>"create"}, :html=>{:id=>"draft_img_form",autocomplete: "off" }) do |f| %>
+
+		      <div class="row-fluid">
+		        类型： <%= f.select :category_id, options_for_select(Category.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: true}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
+		      </div><br/>
+
+		      <div class="row-fluid ui form">
+		        名称： <%= f.text_field :name, class: 'form-control input-sm', style: 'width: 280px;' %>
+		      </div>
+
+	          <br/>
+		      <%= hidden_field_tag :commit_attachment_ids %>
+
+		      <div class="row-fluid">
+		        <a href="javascript:history.back();"><div class="ui button cancel">返回</div></a>
+		        <div class="ui primary button" onclick="problem_message_save()">提交</div>
+		      </div>
+
+			<% end %>
+		    </td>
+		  </tr>
+		
+	  </tbody>
+	</table>
+
+<script type="text/javascript">
+
+   function new_problem_message_images(){
+   	 var draft_img = $("#draft_img").val();
+   	 if (draft_img != ""){
+       $("#draft_img_message").text("")	;
+       $("#image_preview_form").submit();
+     }else{
+       $("#draft_img_message").text("请选择上传文件。")	;
+     }
+   }
+
+   function problem_message_save(){
+     $("#commit_attachment_ids").val($("#had_attachment_ids").val());
+     $("#draft_img_form").submit();
+   }
+
+</script>

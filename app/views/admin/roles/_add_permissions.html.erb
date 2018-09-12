@@ -1,0 +1,22 @@
+
+<%= simple_form_for @role, url: save_permissions_admin_roles_path(id:@role.id) , method: :post, remote: true, html: {id:"add_permissions"} do |f| %>
+  
+    <div id="form_message" class="two fields red" style="margin-left: 15px;display:none;" ></div>
+
+    <% Permission.all.each do |permission|%>
+	    <label class="checkbox">
+	      <%= check_box_tag "role[permission_ids][]",permission.id,@role.permission_ids.include?(permission.id)%> <%= permission.name %>
+	    </label>
+	<% end %>
+	<br/>
+    
+    <div class="field">
+      <div class="actions ">
+        <div class="ui button primary" id="commition" >提交</div>
+        <div class="ui cancel button">取消</div>
+      </div>
+    </div>
+
+<% end %>
+
+

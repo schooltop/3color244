@@ -1,0 +1,28 @@
+<div class="ui grid">
+  <div class="left floated fourteen wide column">
+    <h2><a href="javascript:history.back()"><i class="blue reply icon"></i></a>权限管理</h2>
+  </div>
+</div>
+<div class="ui blue segment">
+	<div class="ui grid">
+    <div class="left floated wide column">
+      <%= link_to '新增分类', new_admin_category_path, class: 'ui primary button', remote: true  %>
+    </div>
+  </div>  
+  <table class="ui selectable striped celled table">
+    <thead>
+    <tr >
+      <th class="center aligned">name</th>
+      <th class="center aligned">action_tag</th>
+      <th class="center aligned">controller_tag</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render :partial => "list", :collection => @permissions, :as => :permission %>
+    </tbody>
+  </table>
+  <span class="blue">
+    <%= page_entries_info(@permissions) %>
+  </span>
+  <%= paginate(@permissions, :theme => 'admin')%>
+</div>

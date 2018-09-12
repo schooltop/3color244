@@ -1,0 +1,32 @@
+
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed">
+
+    <div class="am-u-md-8 am-u-sm-12">
+
+      <% @articles.each do |article| %>
+        <article class="am-g blog-entry-article">
+            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+                <%= image_tag article.cover_img_path ,:class=>"am-u-sm-12" %>
+            </div>
+            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+                <span><a href="/blogs/<%= blog.id %>" class="blog-color">article &nbsp;</a></span>
+                <span> <%= article.user_name %> &nbsp;</span>
+                <span><%= show_db_time(article.created_at) %></span>
+                <h1><a href="/articles/<%= article.id %>"><%= article.title %></a></h1>
+                <p><%= article.content.html_safe %></p>
+                <p><a href="/articles/<%= article.id %>" class="blog-continue">continue reading</a></p>
+            </div>
+        </article>
+      <% end %>
+
+      <%= paginate @articles %>
+
+    </div>
+
+    <%= render '/shared/article/right' %>
+    
+</div>
+<!-- content end -->
+
+

@@ -1,0 +1,16 @@
+<tr id="article_<%= article.id %>">
+  <td class="center aligned">
+    <span><%= article.id%></span>
+  </td>
+  <td class="center aligned">
+    <%= article.title%> 
+  </td>
+  <td class="center aligned">
+    <%= article.user_name %>
+  </td>
+  <td class="center aligned">
+    <%= link_to edit_admin_article_path(article), data: {content: '修改', variation: 'inverted'}, class: 'ui blue icon button' do %>
+      <i class="edit icon"></i>
+    <% end %>
+  </td>
+</tr>

@@ -2,7 +2,7 @@ class CreateArticles < ActiveRecord::Migration[5.1]
   def change
     create_table :articles do |t|
       t.string  :title
-	  t.text    :content
+	    t.text    :content
       t.string  :cover_img
       t.references :category, comment: '分类'
       t.references :activity, comment: '活动' 
