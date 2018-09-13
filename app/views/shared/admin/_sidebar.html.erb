@@ -2,8 +2,30 @@
   <ul>
     <li>
       <a class="item">
-        <i class="bar chart icon"></i>
-        <span class="main_menu">用户管理</span>
+        <i class="legal icon"></i>
+        <span class="main_menu">内容管理</span>
+        <i class="right dropdown icon"></i>
+      </a>
+      <div class="menu content child active">
+        <%= link_to admin_articles_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>文章管理</span>
+        <% end %>
+        <%= link_to admin_pictures_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>图片管理</span>
+        <% end %>
+        <%= link_to admin_categories_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>类型管理</span>
+        <% end %>
+      </div>
+    </li>
+
+    <li>
+      <a class="item">
+        <i class="configure icon"></i>
+        <span class="main_menu">系统管理</span>
         <i class="right dropdown icon"></i>
       </a>
       <div class="menu content child active">
@@ -11,7 +33,17 @@
           <i class="left bullseye icon"></i>
           <span>员工管理</span>
         <% end %>
+        <%= link_to admin_permissions_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>权限管理</span>
+        <% end %>
+        <%= link_to admin_roles_path, class: 'item', active_class: 'actives' do %>
+          <i class="left bullseye icon"></i>
+          <span>角色管理</span>
+        <% end %>
       </div>
     </li>
+
   </ul>
 </div>
+

@@ -2,7 +2,12 @@
   <figure data-am-widget="figure" class="am am-figure am-figure-default "   data-am-figure="{  pureview: 'true' }">
       <div id="container">  
       <% @picture.attachments.each do |attachment| %>     
-          <div><a href="/admin/pictures/show_gps?id=<%=attachment.id%>" target="_blank"><%= image_tag "#{attachment.path}"%></a><h3><%= attachment.name %></h3></div>
+          <div>
+            <a href="/admin/pictures/show_gps?id=<%=attachment.id%>" target="_blank">
+              <%= image_tag "#{attachment.path}", width: '100px', heigh: '50px', title: attachment.name %>
+            </a>
+          <h3><%= attachment.name %></h3>
+          </div>
       <% end %>    
     </div> 
   </figure>	

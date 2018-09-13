@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  layout 'blog'
+  layout 'article'
 
   def index
     @picture = Picture.last

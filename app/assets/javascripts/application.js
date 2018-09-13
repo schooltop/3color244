@@ -6,3 +6,4 @@
 //= require moment
 //= require wangEditor.min
 //= require zUI
+//= require jquery.remotipart

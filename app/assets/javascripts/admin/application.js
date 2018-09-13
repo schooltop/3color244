@@ -11,6 +11,7 @@
 //= require_tree ../semantic
 //= require_self
 
+
 $.fn.dropdown.settings.placeholder = false;
 $.fn.search.settings.maxResults = 15;
 $.fn.calendar.settings.ampm = false;

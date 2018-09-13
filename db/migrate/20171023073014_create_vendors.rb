@@ -21,7 +21,7 @@ class CreateVendors < ActiveRecord::Migration[5.1]
       t.string   :cover_img, comment: "封面"
       t.string   :contract, comment: "合同"
       t.decimal  :discount, precision: 10, scale: 2, comment: "折扣"
-      t.integer  :category, comment: "公司分类"
+      t.references  :category, comment: "公司分类"
       t.integer  :view_count, comment: "关注数量"
       t.integer  :seq, default: 10, comment: "排序"
       t.string   :tag	, comment: "标签"

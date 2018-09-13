@@ -13,7 +13,7 @@
   <div class="control-group optional form-group field" style="margin-top: 10px" >
     <%= f.label :category, 'Category', class: 'password optional control-label' %>
     <div class="controls">
-      <%= f.select :category_id, options_for_select(Category.all.collect { |p| [ p.name, p.id ] }, @article.category_id), {include_blank: true}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
+      <%= f.select :category_id, options_for_select(Category.where(mode:"Article").collect { |p| [ p.name, p.id ] }, @article.category_id), {include_blank: true}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
     </div>
   </div>
 

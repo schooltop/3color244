@@ -16,8 +16,8 @@
     <div class="blog-sidebar-widget blog-bor">
         <h2 class="blog-title"><span>么么哒</span></h2>
         <ul class="am-list">
-          <% Blog.view_count_top.each do |blog| %>
-            <li><a href="/blogs/<%= blog.id %>"><%= blog.title %></a></li>
+          <% Article.view_count_top.each do |article| %>
+            <li><a href="/articles/<%= article.id %>"><%= article.title %></a></li>
           <% end %>
         </ul>
     </div>

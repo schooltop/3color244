@@ -4,5 +4,6 @@
 //= require web/img.js
 //= require web/jquery.lazyload.min
 //= require web/blocksit.min.js
+//= require jquery.remotipart
 //= require_self
 

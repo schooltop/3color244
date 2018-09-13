@@ -10,7 +10,7 @@
                 <%= image_tag article.cover_img_path ,:class=>"am-u-sm-12" %>
             </div>
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-                <span><a href="/blogs/<%= blog.id %>" class="blog-color">article &nbsp;</a></span>
+                <span><a href="/articles/<%= article.id %>" class="blog-color">article &nbsp;</a></span>
                 <span> <%= article.user_name %> &nbsp;</span>
                 <span><%= show_db_time(article.created_at) %></span>
                 <h1><a href="/articles/<%= article.id %>"><%= article.title %></a></h1>
