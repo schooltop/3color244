@@ -5,7 +5,7 @@ class Admin::CategoriesController < Admin::BaseController
   # GET /categories.json
   def index
     @q = SearchParams.new(params[:search_params] || {})
-    @categories = Category.default_where(@q.attributes(self)).page(params[:page]).per(10)
+    @categories = Category.default_where(@q.attributes(self)).order(:mode).page(params[:page]).per(10)
   end
 
   # GET /categories/1
@@ -58,6 +58,6 @@ class Admin::CategoriesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:parent_id,:name)
+      params.require(:category).permit(:parent_id,:name,:mode)
     end
 end

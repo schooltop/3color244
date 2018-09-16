@@ -30,25 +30,6 @@
   <%= stylesheet_link_tag 'web' %>
   <%= javascript_include_tag 'web' %>
 
-  <!-- Start of Insight Tag for ThinkyouPage -->
-    <script type="text/javascript" async>
-        var opxProtocol = (("https:" == document.location.protocol ) ? "https://" : "http://");
-        var opxRegion = "<%= DOMAIN %>";
-        document.write(unescape("%3Cscript src='" + opxProtocol + opxRegion + "/opxLoader.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-
-    <script type="text/javascript" async>
-        var opxtitle = document.title ;
-        var opxurl = escape(document.URL) ;
-        var opxreferrer = escape(document.referrer) ;
-        // var opxcookie = escape(document.cookie) ;
-        var opxuserAgent = escape(navigator.userAgent) ;
-        var opxid = "<%= cookies[:opxPID] %>";
-        var opxParams = "opxtitle="+opxtitle+";"+"opxurl="+opxurl+";"+"opxreferrer="+opxreferrer+";"+"opxid="+opxid+";"+"opxuserAgent="+opxuserAgent;
-        opxLoad(opxProtocol + opxRegion, opxParams);
-    </script>
-    <!-- End of Insight Tag  -->
-
 </head>
  
 <body id="blog-article-sidebar">
@@ -56,7 +37,7 @@
     <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
         <div class="am-u-sm-8 am-u-sm-centered" >
           <a href="/"><%= image_tag "/assets/logo.png" ,:width=>"200", :height=> "44"%></a>
-          <h2 class="am-hide-sm-only">Welcome to visit paipai</h2>
+          <h2 class="am-hide-sm-only">培养天才的最佳方式是--为所欲为</h2>（每天一句）
         </div>
     </header>
     <!-- header end -->

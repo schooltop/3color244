@@ -14,9 +14,7 @@
                 </div>
                 <div class="am-list-news-bd">
                 <ul class="am-list">
-                  <% current_user.my_from.each do |cu| %>
-                    <li><a href="/customers/<%= cu.id%>"><%= cu.name %></a></li>
-                  <% end %>
+                  
                 </ul>
                 </div>
                 <div class="am-list-news-hd am-cf">
@@ -27,9 +25,7 @@
                 </div>
                 <div class="am-list-news-bd">
                 <ul class="am-list">
-                  <% current_user.my_to.each do |cu| %>
-                    <li><a href="/customers/<%= cu.id%>"><%= cu.name %></a></li>
-                  <% end %>
+                  
                 </ul>
                 </div>
               </div>
@@ -45,14 +41,7 @@
 
                 <div class="am-list-news-bd">
                   <ul class="am-list">
-                    <% current_user.customers_vendors.each do |cv| %>
-                      <li>
-                          <a href="/vendors/<%= cv.vendor_id %>">
-                          <%= image_tag cv.vendor.cover_img_path ,:class=>"blog-entry-img blog-article-margin",:width=>"200px",:higth=>"80px" %> <br/>
-                          <%= cv.vendor.name %></a>
-                          <%=  GpsLocation.find(cv.gps_location_id.to_i).latitude_longitude if cv.gps_location_id %>
-                      </li>
-                    <% end %>
+                    
                   </ul>
                 </div>
               </div>
@@ -70,12 +59,6 @@
                 <div class="am-list-news-bd">
                 <ul class="am-list">
 
-                   <% current_user.gps.each do |gps| %>
-                      <li>
-                        <%= image_tag gps.cover_img_path ,:class=>"blog-entry-img blog-article-margin",:width=>"200px",:higth=>"80px" %> <br/>
-                        经纬度：<%= gps.latitude_longitude %>
-                      </li>
-                    <% end if current_user.gps %>
                 </ul>
               </div>
               </div>
@@ -91,9 +74,7 @@
                 </div>
                 <div class="am-list-news-bd">
                 <ul class="am-list">
-                  <% current_user.customers.each do |cu| %>
-                    <li><a href="/customers/<%= cu.id%>"><%= cu.name %></a></li>
-                  <% end %>
+                 
                 </ul>
                 </div>
               </div>

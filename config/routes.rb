@@ -9,6 +9,17 @@ Rails.application.routes.draw do
       get :add_comments
     end
   end
+  resources :vendors do
+    collection do
+      post :upload_image
+      get :show_gps
+      get :add_comments
+      get :top_search
+      get :details
+      get :review
+    end
+  end
+
   namespace :admin do
     root to: 'employees#desboart'
     resources :categories do
@@ -83,20 +94,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :vendors do
-    collection do
-      post :upload_image
-      get :show_gps
-      get :add_comments
-      get :top_search
-      get :details
-      get :review
-    end
-  end
-
   #root to: '/admin/employees'
-  root to: 'admin/employees#index'
-  # root to: 'vendors#index'
+  #root to: 'admin/employees#index'
+  root to: 'vendors#review'
   devise_for :employees, path: "admin", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', sign_up: 'cmon_let_me_in' }, controllers: { sessions: "admin/sessions", passwords: "admin/passwords"}
   devise_for :users, path: "web", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', sign_up: 'cmon_let_me_in' }, controllers: { sessions: "web/sessions", passwords: "web/passwords"}
 

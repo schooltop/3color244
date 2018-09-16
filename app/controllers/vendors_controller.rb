@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index,:show,:review,:details]
   before_action :set_vendor, only: [:show, :edit, :update, :destroy,:add_comments]
   layout "web"
   require 'exifr/jpeg'
@@ -48,8 +48,7 @@ class VendorsController < ApplicationController
   end
 
   # 商家产品明细
-  def review
-   render :layout=>false
+  def review  
   end
 
   # GET /vendors/new

@@ -7,14 +7,25 @@
       <li class="am-active"><a href="/"><%= image_tag "/assets/logo_a.png" ,:width=>"40", :height=> "40"%>  首页</a></li>
       <li class="am-dropdown" data-am-dropdown>
         <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-          商店 <span class="am-icon-caret-down"></span>
+          文章 <span class="am-icon-caret-down"></span>
         </a>
         <ul class="am-dropdown-content">
-          <li><a href="/vendors/new">1. 创建商店</a></li>         
-          <li><a href="/vendors">2. 附近的商店</a></li>
+          <% Category.where(mode:"Article").each do |category| %>
+            <li><a href="/articles?category_id=<%= category.id %>"><%= category.name %></a></li>   
+          <% end %>      
         </ul>
       </li>
-      <li><a href="/customers/new">拍拍</a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          商家 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <% Category.where(mode:"Vendor").each do |category| %>
+            <li><a href="/vendors?category_id=<%= category.id %>"><%= category.name %></a></li>   
+          <% end %>      
+        </ul>
+      </li>
+      <li><a href="/vendors/review">活动</a></li>
       <% if current_user %><li><a href="/web/center">个人中心</a></li><% end %>
     </ul>
     <%= form_tag top_search_vendors_path, class: 'am-topbar-form am-topbar-right am-form-inline', method: :get, id: 'top_search_form' do %>
