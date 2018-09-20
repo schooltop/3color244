@@ -48,6 +48,6 @@ class Admin::PicturesController < Admin::BaseController
   private
 
     def picture_params
-      params.require(:picture).permit(:category_id,:name)
+      params.require(:picture).permit(:category_id,:name,:user_id,:vendor_id,:employee_id,:content)
     end
 end

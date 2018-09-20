@@ -12,7 +12,21 @@
   <div class="control-group optional form-group field" style="margin-top: 10px" >
 	  <%= f.label :category, 'Category', class: 'password optional control-label' %>
 	  <div class="controls">
-	    <%= f.select :category_id, options_for_select(Category.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: true}, {class: 'form-control input-sm  ui dropdown', style: 'width: 280px;' } %>
+	    <%= f.select :category_id, options_for_select(Category.where(mode:"Article").collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择类型"}, {class: 'form-control input-sm  ui dropdown', style: 'width: 280px;' } %>
+	  </div>
+  </div>
+
+  <div class="control-group optional form-group field" style="margin-top: 10px" >
+	  <%= f.label :user_id, 'User', class: 'password optional control-label' %>
+	  <div class="controls">
+	    <%= f.select :user_id, options_for_select(User.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择用户"}, {class: 'form-control input-sm  ui dropdown', style: 'width: 280px;' } %>
+	  </div>
+  </div>
+
+  <div class="control-group optional form-group field" style="margin-top: 10px" >
+	  <%= f.label :vendor_id, '商家', class: 'password optional control-label' %>
+	  <div class="controls">
+	    <%= f.select :vendor_id, options_for_select(Vendor.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择商家"}, {class: 'form-control input-sm  ui dropdown', style: 'width: 280px;' } %>
 	  </div>
   </div>
 
@@ -20,6 +34,13 @@
 	  <%= f.label :title, 'Title', class: 'password optional control-label' %>
 	  <div class="controls">
 	    <%= f.text_field :title, class: 'form-control input-sm', style: 'width: 280px;' %>
+	  </div>
+  </div>
+
+  <div class="control-group optional form-group field ui form" style="margin-top: 10px" >
+	  <%= f.label :min_show, 'Show-title', class: 'password optional control-label' %>
+	  <div class="controls">
+	    <%= f.text_field :min_show, class: 'form-control input-sm', style: 'width: 280px;' %>
 	  </div>
   </div>
 

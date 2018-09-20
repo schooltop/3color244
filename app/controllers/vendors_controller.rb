@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show,:review,:details]
   before_action :set_vendor, only: [:show, :edit, :update, :destroy,:add_comments]
-  layout "web"
+  layout "article"
   require 'exifr/jpeg'
 
   # GET /vendors

@@ -33,11 +33,21 @@
 		    <%= form_for(@picture, :url => {:action =>"create"}, :html=>{:id=>"draft_img_form",autocomplete: "off" }) do |f| %>
 
 		      <div class="row-fluid">
-		        类型： <%= f.select :category_id, options_for_select(Category.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: true}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
+		        类型： <%= f.select :category_id, options_for_select(Category.where(mode:"Picture").collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择类型"}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
+		        作者： <%= f.select :user_id, options_for_select(User.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择作者"}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
+		      </div><br/>
+
+		      <div class="row-fluid">
+		        商家： <%= f.select :vendor_id, options_for_select(Vendor.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择商家"}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
+                管理人员 <%= f.select :employee_id, options_for_select(Employee.all.collect { |p| [ p.name, p.id ] }, ''), {include_blank: "选择管理人员"}, {class: 'form-control input-sm ui dropdown', style: 'width: 280px;' } %>
 		      </div><br/>
 
 		      <div class="row-fluid ui form">
-		        名称： <%= f.text_field :name, class: 'form-control input-sm', style: 'width: 280px;' %>
+		        名称： <%= f.text_field :name, class: 'form-control input-sm', style: 'width: 380px;' %>
+		      </div><br/>
+
+		      <div class="row-fluid ui form">
+		        描述： <%= f.text_field :content, class: 'form-control input-sm', style: 'width: 380px;' %>
 		      </div>
 
 	          <br/>
