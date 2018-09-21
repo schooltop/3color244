@@ -22,3 +22,7 @@ Active用来做作品的展示描述
 活动描述和展示入口
 
 瀑布流进来首先展示随机，加载随机。（预加载下一页）
+
+/opt/nginx/sbin/nginx -s reload 
+touch tmp/restart.txt 
+vim /opt/nginx/conf/nginx.conf
