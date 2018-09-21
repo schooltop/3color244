@@ -7,6 +7,16 @@ development:
   username: root
   password: 
   host: 127.0.0.1
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  database: 3color244_production
+  username: root
+  password: 
+  host: 127.0.0.1  
   
 
 
