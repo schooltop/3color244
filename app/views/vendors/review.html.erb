@@ -109,14 +109,11 @@ $(function(){
             });
         }
     }); 
-    $(window).scroll(function(){
-            // 当滚动到最底部以上50像素时， 加载新内容
+
+
+    window.onscroll = throttle(function (){
+        // 当滚动到最底部以上50像素时， 加载新内容
         if ($(document).height() - $(this).scrollTop() - $(this).height()<50){
-            //动态获取数据时候该这里
-            /*1.动态获得后台返回的数据
-            2.拼接到模板里面（生成html）
-            3.拼接到指定模板后面
-            */
             aa = aa + 1
 
             // $.ajax({
@@ -165,7 +162,8 @@ $(function(){
             $("img.lazy").lazyload();
             
         }
-    });
+        
+    }, 500);
     
     //window resize
     var currentWidth = 1100;
