@@ -5,7 +5,7 @@ development:
   pool: 5
   database: 3color244
   username: root
-  password: jamst@123
+  password: 
   host: 127.0.0.1
   
 
