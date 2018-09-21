@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <div id="container" style="height: 767px; width: 1100px;">
+    <div id="container" style="height: 767px; ">
         <div class="grid" >
             <div class="imgholder"><img class="lazy" src="/assets/img/01.jpg"  width="175" style="display: block;"></div>
             <strong>作品1</strong>
@@ -55,7 +55,7 @@
 </div>
 
 
-<div id="test" style="display:none;width: 100%;">
+<div id="test" style="display:none;width: auto;">
     <div class="grid">
         <div class="imgholder"><img class="lazy" src="/assets/img/01.jpg" width="175"></div>
         <strong>作品2</strong>
@@ -95,6 +95,9 @@ $(window).bind("load", function() {
     var timeout = setTimeout(function() {console.log("aaaaaaaa"); $("img.lazy").trigger("sporty")}, 5000);
 });
 $(function(){
+
+    
+        
     $("img:below-the-fold").lazyload({  
         failurelimit :10 ,   //  插件找到 10 个不在可见区域的图片是才停止搜索.
         event : "sporty",   //设置延迟加载
@@ -195,4 +198,19 @@ $(function(){
         }
     });
 });
+
+var winWidth = $(window).width();
+var conWidth = 1100;
+if(winWidth < 500) {
+    conWidth = 440;
+} else if(winWidth < 660) {
+    conWidth = 440;
+} else if(winWidth < 880) {
+    conWidth = 660;
+} else {
+    conWidth = 1100;
+} 
+
+$('#container').width(conWidth);
+    
 </script>
