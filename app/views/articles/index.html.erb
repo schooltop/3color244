@@ -7,7 +7,7 @@
       <% @articles.each do |article| %>
         <article class="am-g blog-entry-article">
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-                <%= image_tag article.cover_img_path ,:class=>"am-u-sm-12" %>
+                <a href="/articles/<%= article.id %>" target="_blank"><%= image_tag article.cover_img_path ,:class=>"am-u-sm-12" %></a>
             </div>
             <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
                 <span><a href="/articles/<%= article.id %>" class="blog-color">article &nbsp;</a></span>

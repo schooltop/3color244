@@ -11,8 +11,8 @@ class VendorsController < ApplicationController
   end
 
   def top_search
-    @articles = Ariticle.joins("user").where("title like '#{params[:title]}%' or users.name = '#{params[:title]}%' ").page(params[:page]).per(5)
-    redirect_to :controller => "articles",:action=>"index"
+    @vendors = Vendor.where("title like '#{params[:title]}%' ").page(params[:page]).per(5)
+    render "index"
   end
 
   def add_comments
