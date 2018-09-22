@@ -1,6 +1,8 @@
 class Article < ApplicationRecord
   has_many :attachments, as: :attachment_entity
   belongs_to :category, optional: true
+  belongs_to :user
+  belongs_to :vendor
   has_many :comments
   serialize :tag
 
