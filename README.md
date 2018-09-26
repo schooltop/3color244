@@ -26,3 +26,7 @@ Active用来做作品的展示描述
 /opt/nginx/sbin/nginx -s reload 
 touch tmp/restart.txt 
 vim /opt/nginx/conf/nginx.conf
+
+
+点赞功能，大拇指似购物车放大功能
+个人中心完善
