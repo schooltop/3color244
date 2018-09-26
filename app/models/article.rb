@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   serialize :tag
 
 	def user_name
-    "@#{self.title}"
+    "@#{self.user&.name}"
 	end
 
 	def self.view_count_top
