@@ -18,4 +18,6 @@ module PreReport
   end
 end
 
+DOMAIN = Rails.env.production? ? 'http://47.105.90.31' : (Rails.env.staging? ? 'http://47.105.90.31' :  'http://localhost:3000' )
+
 

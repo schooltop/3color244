@@ -5,11 +5,44 @@
   <div class="am-collapse am-topbar-collapse" id="blog-collapse">
     <ul class="am-nav am-nav-pills am-topbar-nav">
       <li class="am-active">
-         <a href="/"><%= image_tag "/assets/logo_a.png" ,:width=>"40", :height=> "40"%>  首页</a>
+         <a href="/"><%= image_tag "/assets/logo_a.png" ,:width=>"40", :height=> "40"%>首页</a>
       </li>
-      <li class="<%= request.url == 'http://localhost:3000/articles/1' ? 'am-active' : ''%>"><a href="/articles/1">蕃茄田简介</a></li>
-      <li class="<%= request.url == 'http://localhost:3000/articles/2' ? 'am-active' : ''%>"><a href="/articles/2">活动介绍</a></li>
-      <li class="<%= request.url == 'http://localhost:3000/vendors/review' ? 'am-active' : ''%>"><a href="/vendors/review">参展作品</a></li>
+
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          合作企业 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+            <li><a href="/articles/1">蕃茄田简介</a></li> 
+            <li><a href="/articles/1">申请加入schooltop</a></li>   
+        </ul>
+      </li> 
+
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          活动中心 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+            <li><a href="/articles/2">活动简介</a></li>  
+            <li><a href="/vendors/review">参展作品</a></li>   
+        </ul>
+      </li> 
+
+      <% if current_user %>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            个人中心 <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+              <li><a href="/web/center">个人主页</a></li>  
+              <li><%= link_to "退出登录", destroy_user_session_path, method: 'delete'%></li>   
+          </ul>
+        </li>
+      <% else %>
+          <li><a href="/web/login">个人登录</a></li>
+      <% end %>
+
+      <li class="<%= request.url == '<%= DOMAIN %>/vendors/review' ? 'am-active' : ''%>"><a href="/vendors/review">参展作品</a></li>
     </ul>
     <%= form_tag top_search_articles_path, class: 'am-topbar-form am-topbar-right am-form-inline', method: :get, id: 'top_search_form' do %>
       <div class="am-form-group">

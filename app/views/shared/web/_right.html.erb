@@ -1,33 +1,31 @@
 <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
     <div class="blog-sidebar-widget blog-bor">
-        <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+        <h2 class="blog-text-center blog-title"><span>二维码分享</span></h2>
         <%= image_tag "http://47.105.90.31/uploads/picture/path/9/1537572875.png" ,:class=>"blog-entry-img"%>
-        <p>jamst</p>
-        <p>希望能和你交朋友-给我发邮件：107422244@qq.com</p>
-        <p>在工作中记录技术的点滴实现自我成长。分享生活的乐趣，培养兴趣爱好。</p>
-    </div>
+        <p>分享二维码让更多人关注本作品</p>
+    </div> 
     <div class="blog-sidebar-widget blog-bor">
-        <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
-        <p>
-            <a href="tencent://message/?Menu=yes&uin=107422244"><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
-            <a href="https://github.com/jamst"><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+        <h2 class="blog-text-center blog-title"><span>更多分享</span></h2>
+        <p>  
+            <div class="bdsharebuttonbox" data-tag="share_1">
+              <a class="bds_weixin" data-cmd="weixin"></a>
+              <a class="bds_sqq" data-cmd="sqq"></a>
+              <a class="bds_qzone" data-cmd="qzone"></a>
+              <a class="bds_tsina" data-cmd="tsina"></a>
+              <a class="bds_renren" data-cmd="renren"></a>
+              <a class="bds_more" data-cmd="more">更多</a>
+              <a class="bds_count" data-cmd="count"></a>
+            </div>   
         </p>
     </div>
     <div class="blog-sidebar-widget blog-bor">
-        <h2 class="blog-title"><span>热门商家</span></h2>
+        <h2 class="blog-title"><span>推荐浏览</span></h2>
         <ul class="am-list">
-          <% Vendor.view_count_top.each do |vendor| %>
-            <li><a href="/vendors/<%= vendor.id %>"><%= vendor.name %></a></li>
+          <% Article.view_count_top.each do |article| %>
+            <li><a href="/articles/<%= article.id %>"><%= article.title %></a></li>
           <% end %>
         </ul>
     </div>
-<!--     <div class="blog-sidebar-widget blog-bor">
-        <h2 class="blog-title"><span>热门客户</span></h2>
-        <ul class="am-list">
-          <%# Customer.view_count_top.each do |customer| %>
-            <li><a href="/customers/<%#= customer.id %>"><%#= customer.name %></a></li>
-          <%# end %>
-        </ul>
-    </div> -->
-   
+  
 </div>
+

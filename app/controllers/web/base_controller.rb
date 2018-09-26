@@ -2,7 +2,7 @@ class Web::BaseController < ActionController::Base
     protect_from_forgery with: :exception
     layout "web"
     before_action :authenticate_user!
-    before_action :update_or_create_opxpid
+    #before_action :update_or_create_opxpid
 
     def update_or_create_opxpid
 	    unless cookies[:opxPID]
