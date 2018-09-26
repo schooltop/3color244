@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909032251) do
+ActiveRecord::Schema.define(version: 20180926102426) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", comment: "活动名称"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20180909032251) do
     t.integer "picture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "vendor_id", comment: "企业评论"
   end
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -218,12 +219,15 @@ ActiveRecord::Schema.define(version: 20180909032251) do
     t.string "cover_img", comment: "封面"
     t.string "contract", comment: "合同"
     t.decimal "discount", precision: 10, scale: 2, comment: "折扣"
-    t.integer "category", comment: "公司分类"
+    t.bigint "category_id", comment: "公司分类"
     t.integer "view_count", comment: "关注数量"
     t.integer "seq", default: 10, comment: "排序"
     t.string "tag", comment: "标签"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "latitude", comment: "gps经度"
+    t.string "longitude", comment: "gps纬度"
+    t.index ["category_id"], name: "index_vendors_on_category_id"
     t.index ["employee_id"], name: "index_vendors_on_employee_id"
   end
 

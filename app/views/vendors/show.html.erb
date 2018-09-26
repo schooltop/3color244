@@ -16,13 +16,6 @@
             </a>
             <%= @vendor.content.html_safe %>
         </div>
-    
-        <div class="blog-sidebar-widget blog-bor" id="blog_visit_list" >
-          <h3 class="blog-comment">到访用户</h3>
-          <% @vendor.customers.each do |cs| %>
-            <a href="/customers/<%= cs.id %>" class="vendor-color"><%= cs.name %></a> 
-          <% end %>
-        </div>
 
         <%= simple_form_for Comment.new, url: add_comments_vendors_path, method: :get, html: {id:"add_comment_form",class:"am-form am-g"} do |f| %>
             <h3 class="blog-comment">评论</h3>

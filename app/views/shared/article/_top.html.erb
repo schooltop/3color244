@@ -14,7 +14,7 @@
         </a>
         <ul class="am-dropdown-content">
             <li><a href="/articles/1">蕃茄田简介</a></li> 
-            <li><a href="/articles/1">申请加入schooltop</a></li>   
+            <li><a href="/vendors/new">申请加入schooltop</a></li>   
         </ul>
       </li> 
 
@@ -42,7 +42,7 @@
           <li><a href="/web/login">个人登录</a></li>
       <% end %>
 
-      <li class="<%= request.url == '<%= DOMAIN %>/vendors/review' ? 'am-active' : ''%>"><a href="/vendors/review">参展作品</a></li>
+      <li class="<%= request.url == "#{DOMAIN}/vendors/review" ? 'am-active' : ''%>"><a href="/vendors/review">参展作品</a></li>
     </ul>
     <%= form_tag top_search_articles_path, class: 'am-topbar-form am-topbar-right am-form-inline', method: :get, id: 'top_search_form' do %>
       <div class="am-form-group">

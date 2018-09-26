@@ -1,5 +1,4 @@
 
-<br/><br/>
 <%= form_for @vendor, url: url, method: meth, :html => { :multipart => true } do |f| %>
   <div class="field" style="margin-left: 20px;">
     <%= file_field_tag "draft_img", id: 'draft_img' %>
@@ -13,33 +12,56 @@
   </div>
 
   <div class="control-group optional form-group field ui form" style="margin: 20px;" >
-    <%= f.label :title, 'Title', class: 'password optional control-label' %>
+    <%= f.label :parent_name, '总公司名称', class: 'password optional control-label' %>
     <div class="controls">
-      <%= f.text_field :title, class: 'form-control input-sm', style: 'width: 280px;' %>
+      <%= f.text_field :parent_name, class: 'form-control input-sm', style: 'width: 280px;' %>
     </div>
-    <%= f.label :name, 'Name', class: 'password optional control-label' %>
+    <%= f.label :name, '公司名称', class: 'password optional control-label' %>
     <div class="controls">
       <%= f.text_field :name, class: 'form-control input-sm', style: 'width: 280px;' %>
     </div>
   </div>
 
-  <div class="control-group optional form-group field" style="margin: 20px;" >
-    <%= f.label :content, 'Content', class: 'password optional control-label' %>
+  <div class="control-group optional form-group field ui form" style="margin: 20px;" >
+    <%= f.label :mobile, '电话', clsas: 'password optional control-label' %>
     <div class="controls">
-      <%= text_area_tag 'vendor[content]', @vendor.content ,:style=>"width:50%;height:300px;", class: 'form-control input-sm'  %>
+      <%= f.text_field :mobile, class: 'form-control input-sm', style: 'width: 280px;' %>
+    </div>
+    <%= f.label :address, '地址', class: 'password optional control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, class: 'form-control input-sm', style: 'width: 280px;' %>
+    </div>
+  </div>
+
+  <div class="control-group optional form-group field ui form" style="margin: 20px;" >
+    <%= f.label :email, '邮箱', class: 'password optional control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, class: 'form-control input-sm', style: 'width: 280px;' %>
+    </div>
+    <%= f.label :website, '网址', class: 'password optional control-label' %>
+    <div class="controls">
+      <%= f.text_field :website, class: 'form-control input-sm', style: 'width: 280px;' %>
+    </div>
+    
+  </div>
+
+  <div class="control-group optional form-group field" style="margin: 20px;" >
+    <%= f.label :content, '简介', class: 'password optional control-label' %>
+    <div class="controls">
+      <%= text_area_tag 'vendor[content]', @vendor.content ,:style=>"width:100%;height:300px;", class: 'form-control input-sm'  %>
     </div>
   </div>
   
   <div class="actions" style="margin-left: 20px;color:#2185D0 ">
-    <%= f.submit %>
+    <%= f.submit '提交', class: 'ui primary button' %>
   </div>
 <% end %>
 
 
-<% content_for :scripts do %>
-  <%= javascript_include_tag 'wangEditor.min' %>
-    <%= stylesheet_link_tag 'wangEditor.min' %>
-  <script>
+<%# content_for :scripts do %>
+  <%#= javascript_include_tag 'wangEditor.min' %>
+  <%#= stylesheet_link_tag 'wangEditor.min' %>
+ <!--  <script>
     //富文本编辑器初始化
     var editor = new wangEditor('vendor_content');
     //图片上传配置
@@ -51,6 +73,6 @@
     };
     editor.create();
     editor.$editorContainer.css('z-index', 0);
-  </script>
-<% end %>
+  </script> -->
+<%# end %>
 
