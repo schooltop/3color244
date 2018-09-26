@@ -34,12 +34,19 @@
                 <i class="lock icon"></i>
               </div>
             </div>
-            <div class="field" style="text-align: left;">
-              <div class="ui checkbox">
-                <%= f.check_box :remember_me %>
-                <label for="remember">记住用户名</label>
+
+            <div class="tow fields" style="text-align: left;">
+              <div class="field" style="text-align: left;">
+                <div class="ui checkbox">
+                  <%= f.check_box :remember_me %>
+                  <label for="remember">记住用户名</label>    
+                </div>
+              </div>
+              <div class="field" style="text-align: left;">
+                <label for="remember"><a href="tencent://message/?Menu=yes&uin=107422244"><i class='icon qq'></i>我是新用户,联系客服</a></label>    
               </div>
             </div>
+            
             <%= f.button :submit, value: '登录', class: 'ui big fluid blue icon button login_btn'  %>
           <% end %>
         </div>
