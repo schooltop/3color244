@@ -94,17 +94,21 @@ canvas {
 </div>
 <!-- content end -->
 
-<script type="text/javascript">
-  $("#add_comments_submit").click(function(){
-    var comment_text = $("#comment_text").val()
-    $.ajax({
-          url: '/articles/add_comments',
-          data: {id:<%= @article.id%>,comment_text:comment_text},
-          type: "get",
-          success: function(data){
-            $("#comment_text").val("");
-            $('#blog_comments_list').html(data);
-          }
-        });
-  });
-</script>
+<% content_for :scripts do %>
+  <%= javascript_include_tag 'web/flutter-hearts-zmt.js' %>
+  <script type="text/javascript">
+    $("#add_comments_submit").click(function(){
+      var comment_text = $("#comment_text").val()
+      $.ajax({
+            url: '/articles/add_comments',
+            data: {id:<%= @article.id%>,comment_text:comment_text},
+            type: "get",
+            success: function(data){
+              $("#comment_text").val("");
+              $('#blog_comments_list').html(data);
+            }
+          });
+    });
+  </script>
+<% end %>
+

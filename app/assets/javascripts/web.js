@@ -6,7 +6,6 @@
 //= require web/jquery.lazyload.min
 //= require web/blocksit.min.js
 //= require web/throttle.js
-//= require web/flutter-hearts-zmt.js
 //= require jquery.remotipart
 //= require_self
 
