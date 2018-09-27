@@ -1,3 +1,27 @@
+<style type="text/css">
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 140px;
+  right: 0;
+  z-index: 20;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.journal-reward {
+  position: fixed;
+  top: 400px;
+  right: 20px;
+  height: 80px;
+  width: 80px;
+  display: block;
+  z-index: 21;
+}
+
+</style>
+
+
 <!-- content srart -->
 <% if @article.mpt.present? %>
     <audio autoplay="autoplay" controls="controls"loop="loop" preload="auto" src="<%= @article.mpt %>">
@@ -64,7 +88,9 @@
     </div>
 
     <%= render '/shared/article/right' %>
-    
+
+    <!-- 点赞 -->
+    <img src="/assets/img/reward.png" class="journal-reward" />
 </div>
 <!-- content end -->
 

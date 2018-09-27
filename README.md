@@ -26,3 +26,6 @@ Active用来做作品的展示描述
 /opt/nginx/sbin/nginx -s reload 
 touch tmp/restart.txt 
 vim /opt/nginx/conf/nginx.conf
+
+编译资源
+RAILS_ENV=production rake assets:precompile
