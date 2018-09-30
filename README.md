@@ -30,9 +30,10 @@ vim /opt/nginx/conf/nginx.conf
 编译资源
 RAILS_ENV=production rake assets:precompile
 
-点赞功能，大拇指似购物车放大功能 done （防抖效果，点击计数。）
-前台form表单美化
+点赞功能，大拇指似购物车放大功能 done （防抖效果，点击计数。done）
+前台form表单美化 done
 个人中心完善
+压缩作品图片
 
 
-二维码，供应商，订单等的识别
+基于二维码，供应商，订单等的识别
