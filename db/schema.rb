@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180926102426) do
+ActiveRecord::Schema.define(version: 20180930092631) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", comment: "活动名称"
@@ -227,6 +227,8 @@ ActiveRecord::Schema.define(version: 20180926102426) do
     t.datetime "updated_at", null: false
     t.string "latitude", comment: "gps经度"
     t.string "longitude", comment: "gps纬度"
+    t.integer "status", default: 0, comment: "0默认，1审核通过，2合同合作"
+    t.string "log_img", comment: "logo"
     t.index ["category_id"], name: "index_vendors_on_category_id"
     t.index ["employee_id"], name: "index_vendors_on_employee_id"
   end

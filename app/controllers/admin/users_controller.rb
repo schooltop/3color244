@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  before_action :set_user, only: [:show, :edit, :update]
 
 	def index
    	 @q = SearchParams.new(params[:search_params] || {})
@@ -11,13 +12,11 @@ class Admin::UsersController < Admin::BaseController
 
     def edit
      @html_title = "Edit user"
-     @user =  User.find(params[:id])
      render :layout => false
     end
 
     def show
       @html_title =  "Show user"
-      @user =  User.find(params[:id])
       render :layout => false
     end
 
@@ -28,7 +27,6 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def update
-      @user = User.find(params[:id])
       @user.update(user_params)
     end
 

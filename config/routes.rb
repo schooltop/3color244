@@ -77,12 +77,9 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users do
-      collection do
-        root to: 'users#index'
-        get  :desboart
-      end
-    end
+    resources :users
+    resources :vendors
+
   end
 
   namespace :web do

@@ -1,0 +1,48 @@
+
+<%= simple_form_for @vendor, url: admin_vendor_path(@vendor) , method: :put, remote: true, html: {id:"edit_point_vendor"} do |f| %>
+  
+    <div id="form_message" class="two fields red" style="margin-left: 15px;display:none;" ></div>
+
+    <div class="two fields">
+      <%= f.input :parent_name %>
+      <%= f.input :name %>
+      <%= f.input :office_tel %>
+      <%= f.input :mobile %>
+      <%= f.input :email %>
+      <%= f.input :website %>
+
+      <%= f.input :parent_id %>
+      <%= f.input :employee_id %>
+      <%= f.input :category_id %>
+      <%= f.input :bd_id %>
+      <%= f.input :am_id %>
+      <%= f.input :cs_id %>
+
+      <%= f.input :gps %>
+      <%= f.input :city %>
+      <%= f.input :place %>
+      <%= f.input :address %>
+
+      <%= f.input :cover_img %>
+      <%= f.input :log_img %>
+
+      <%= f.input :discount %>
+      <%= f.input :view_count %>
+      <%= f.input :seq %>
+
+      <%= f.input :tag %>
+      <%= f.input :content %>
+    </div>
+
+    <div class="field">
+      <div class="actions ">
+        <div class="ui button primary" id="commition" >提交</div>
+        <div class="ui cancel button">取消</div>
+      </div>
+    </div>
+
+<% end %>
+
+
+
+

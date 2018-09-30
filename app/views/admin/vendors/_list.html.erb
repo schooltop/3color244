@@ -1,0 +1,16 @@
+<tr id="vendor_<%= vendor.id %>">
+  <td class="center aligned">
+    <span><%= vendor.id%></span>
+  </td>
+  <td class="center aligned">
+    <%=  vendor.email%>
+  </td>
+  <td class="center aligned">
+    <%= vendor.name %>
+  </td>
+  <td class="center aligned">
+    <%= link_to edit_admin_vendor_path(vendor.id) , remote: true, class: 'ui icon primary button', 'data-content' => '修改合作企业', 'data-variation' => 'inverted'  do%>
+      <i class="edit icon"></i>
+    <% end %>
+  </td>
+</tr>

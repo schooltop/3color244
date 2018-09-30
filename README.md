@@ -37,3 +37,6 @@ RAILS_ENV=production rake assets:precompile
 
 
 基于二维码，供应商，订单等的识别
+
+
+vendor关联employee
