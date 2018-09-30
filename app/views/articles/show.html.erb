@@ -90,11 +90,17 @@ canvas {
     <%= render '/shared/article/right' %>
 
     <!-- 点赞 -->
-    <img src="/assets/img/reward.png" class="journal-reward" />
+    <div style="position: fixed;top: 400px;right: 20px;height: 80px;width: 80px;">
+      <img src="/assets/img/1reward.png" class="journal-reward" />
+      <div style="position: absolute; bottom: -8px;width: 80px; color: red">
+         <p style="text-align: center;margin-bottom: 0" id="view_count"><%= @article.view_count %></p>
+      </div>
+    </div>
 </div>
 <!-- content end -->
 
 <script type="text/javascript">
+
   $("#add_comments_submit").click(function(){
     var comment_text = $("#comment_text").val()
     $.ajax({
@@ -107,4 +113,27 @@ canvas {
           }
         });
   });
+
+  var view_count_num=0;
+  var view_count_status=true;
+  $('.journal-reward').on('click',  function(event) {
+     view_count_num++;
+     if(view_count_status){
+         view_count_status = false;
+         setTimeout(function(){
+            $.ajax({
+              url: '/articles/add_view_count',
+              data: {id:<%= @article.id%>,view_count:view_count_num},
+              type: "get",
+              success: function(data){
+                view_count_status = true;
+                $("#view_count").html(data["view_count"]);
+              }
+            });
+            view_count_num = 0;
+         },2000);
+      }
+  });
+
+
 </script>

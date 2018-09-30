@@ -1,0 +1,11 @@
+<% @articles.each do |article| %>
+  <div class="grid" >
+    <div class="imgholder">
+        <a href="/articles/<%= article.id %>" target="_blank">
+           <img class="lazy" src="<%= article.cover_img_path %>"  width="175" style="display: block;">
+        </a>
+    </div>
+    <strong><%= article.title %></strong>
+    <p><%= article.min_show %></p>
+  </div>
+<% end %>

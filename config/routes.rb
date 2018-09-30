@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :top_search
       post :upload_image
       get :add_comments
+      get :add_view_count
     end
   end
   resources :vendors do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
       get :top_search
       get :details
       get :review
+      get :add_review
     end
   end
 

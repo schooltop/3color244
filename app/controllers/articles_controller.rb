@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy,:add_comments]
+  before_action :set_article, only: [:show, :edit, :update, :destroy,:add_comments,:add_view_count]
   layout "article"
 
   # GET /articles
@@ -22,6 +22,12 @@ class ArticlesController < ApplicationController
   def add_comments
     Comment.create(article_id:@article.id,content:params[:comment_text])
     render :partial => 'add_comments'
+  end
+
+  # 点赞计数
+  def add_view_count
+    @article.update(view_count:(@article.view_count + params[:view_count].to_i))
+    render json: { view_count: @article.view_count } 
   end
 
   # GET /articles/1

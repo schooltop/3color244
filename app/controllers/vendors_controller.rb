@@ -20,6 +20,10 @@ class VendorsController < ApplicationController
     render :partial => 'add_comments'
   end
 
+  def add_review
+    @articles = Article.all.page(params[:page]).per(5)
+  end
+
   # GET /vendors/1
   # GET /vendors/1.json
   def show
