@@ -11,7 +11,7 @@ class Article < ApplicationRecord
 	end
 
 	def self.view_count_top
-    order(view_count: :desc).limit(5)
+    order(view_count: :desc).limit(10)
 	end
 
 	def cover_img_path
