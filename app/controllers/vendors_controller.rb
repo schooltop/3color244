@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
   #before_action :authenticate_user!, except: [:index,:show,:review,:details]
+  skip_before_action :verify_authenticity_token
   before_action :set_vendor, only: [:show, :edit, :update, :destroy,:add_comments]
   layout "article"
   require 'exifr/jpeg'
@@ -126,7 +127,7 @@ class VendorsController < ApplicationController
   end
 
   def upload_image
-    attachment = Attachment.create(attachment_entity_type: "vendor", path: params[:wang_editor_file], created_by: 1 )
+    attachment = Attachment.create(attachment_entity_type: "Vendor", path: params[:wang_editor_file], created_by: 1 )
     render plain: attachment.path
   end
 
