@@ -2,6 +2,8 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
+  has_many :articles       
+
     def vendors
       self.customers&.map{|cu|cu.vendors}.flatten.uniq
     end   

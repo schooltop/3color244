@@ -23,10 +23,12 @@
           活动中心 <span class="am-icon-caret-down"></span>
         </a>
         <ul class="am-dropdown-content">
-            <li><a href="/articles/2">活动简介</a></li>  
-            <li><a href="/vendors/review">参展作品</a></li>   
+            <li><a href="/articles/2">蕃茄田艺术（武汉）国际儿童艺术展览简介</a></li>  
         </ul>
       </li> 
+
+      <li class="<%= request.url == "#{DOMAIN}/vendors/review" ? 'am-active' : ''%>"><a href="/vendors/review">蕃茄田平面参展作品</a>
+      </li>
 
       <% if current_user %>
         <li class="am-dropdown" data-am-dropdown>
@@ -42,7 +44,6 @@
           <li><a href="/web/login">个人登录</a></li>
       <% end %>
 
-      <li class="<%= request.url == "#{DOMAIN}/vendors/review" ? 'am-active' : ''%>"><a href="/vendors/review">参展作品</a></li>
     </ul>
     <%= form_tag top_search_articles_path, class: 'am-topbar-form am-topbar-right am-form-inline', method: :get, id: 'top_search_form' do %>
       <div class="am-form-group">

@@ -59,7 +59,11 @@ canvas {
           </div>
           <div class="am-u-sm-9 am-u-md-9 am-u-lg-10" id="new_user">
             <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">jamst</span>
-            <a href="/web/login">(申请开通个人中心)</a>
+            <% if current_user %>
+              <a href="/web/center">(个人主页)</a>
+            <% else %>
+              <a href="/web/login">(申请开通个人中心)</a>
+            <% end %>
             <!-- <a href="tencent://message/?Menu=yes&uin=107422244"><span class="am-icon-qq"></span></a> -->
             </h3>
             <p>李佳琪小朋友</p>

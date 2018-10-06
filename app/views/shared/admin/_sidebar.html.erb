@@ -7,15 +7,15 @@
         <i class="right dropdown icon"></i>
       </a>
       <div class="menu content child active">
-        <%= link_to admin_articles_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_articles_path, class: 'item', active_class: 'articles' do %>
           <i class="left bullseye icon"></i>
           <span>文章管理</span>
         <% end %>
-        <%= link_to admin_pictures_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_pictures_path, class: 'item', active_class: 'pictures' do %>
           <i class="left bullseye icon"></i>
           <span>图片管理</span>
         <% end %>
-        <%= link_to admin_categories_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_categories_path, class: 'item', active_class: 'categories' do %>
           <i class="left bullseye icon"></i>
           <span>类型管理</span>
         <% end %>
@@ -29,19 +29,23 @@
         <i class="right dropdown icon"></i>
       </a>
       <div class="menu content child active">
-        <%= link_to admin_employees_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_employees_path, class: 'item', active_class: 'employees' do %>
           <i class="left bullseye icon"></i>
           <span>员工管理</span>
         <% end %>
-        <%= link_to admin_users_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_users_path, class: 'item', active_class: 'users' do %>
           <i class="left bullseye icon"></i>
           <span>客户管理</span>
         <% end %>
-        <%= link_to admin_permissions_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_vendors_path, class: 'item', active_class: 'vendors' do %>
+          <i class="left bullseye icon"></i>
+          <span>企业管理</span>
+        <% end %>
+        <%= link_to admin_permissions_path, class: 'item', active_class: 'permissions' do %>
           <i class="left bullseye icon"></i>
           <span>权限管理</span>
         <% end %>
-        <%= link_to admin_roles_path, class: 'item', active_class: 'actives' do %>
+        <%= link_to admin_roles_path, class: 'item', active_class: 'roles' do %>
           <i class="left bullseye icon"></i>
           <span>角色管理</span>
         <% end %>
