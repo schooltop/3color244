@@ -18,7 +18,7 @@
 var aa = 1
 $(window).bind("load", function() { 
     //页面加载完成 5 秒后.指定区域内的图片会自动进行加载
-    var timeout = setTimeout(function() {console.log("aaaaaaaa"); $("img.lazy").trigger("sporty")}, 5000);
+    var timeout = setTimeout(function() {$("img.lazy").trigger("sporty")}, 5000);
 });
 $(function(){
 
