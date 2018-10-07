@@ -47,7 +47,7 @@
     </ul>
     <%= form_tag top_search_articles_path, class: 'am-topbar-form am-topbar-right am-form-inline', method: :get, id: 'top_search_form' do %>
       <div class="am-form-group">
-         <input type="text" class="am-form-field am-input-sm" name="title" id="top_search" placeholder="搜索: 作者,作品名" value="<%= params[:title] %>">
+         <input type="text" class="am-form-field am-input-sm" name="title" id="top_search" placeholder="搜索: 作者名,作品名/号" value="<%= params[:title] %>">
       </div>
     <% end %>
   </div>

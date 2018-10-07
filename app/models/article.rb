@@ -15,6 +15,7 @@ class Article < ApplicationRecord
 	end
 
 	def cover_img_path
+    return self.cover_img if self.activity_id == 1
   	self.cover_img ? Attachment.find(self.cover_img.to_i).path.url : "/assets/f10.jpg"
   end
 

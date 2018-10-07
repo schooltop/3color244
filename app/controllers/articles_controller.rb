@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def top_search
-    @articles = Article.joins(:user).where("title like '#{params[:title]}%' or users.name like '#{params[:title]}%' ").page(params[:page]).per(10)
+    @articles = Article.joins(:user).where("title like :q or articles.item_no = '#{params[:title]}' or users.name like :q ",{q: "#{params[:title]}%"} ).page(params[:page]).per(10)
     render "index"
   end
 

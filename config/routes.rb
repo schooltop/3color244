@@ -77,7 +77,13 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users
+    resources :users do
+      collection do
+        post :create_import_users
+        get :import_users
+      end
+    end
+
     resources :vendors
 
   end

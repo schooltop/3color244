@@ -35,6 +35,17 @@ class Admin::UsersController < Admin::BaseController
       render json: {name: @user.name}
     end
 
+    # 导入学生及作品
+    def import_users
+
+    end
+
+    def create_import_users
+      results = User.import_data(params[:file],current_employee)
+      @import,@message = results[0],results[1]
+      render "import_users"
+    end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
