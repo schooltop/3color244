@@ -6,11 +6,11 @@
     <div class="credit">
         <p class="txt">访问商家数量: <%#= current_user.customers_vendors.size %></p>
         <div class="txt fix">
-            <span class="dib l">拍拍次数:</span>
+            <span class="dib l">我的点赞量:</span>
             <div class="progress l" style='width: 150px;'>
-                <div class="bar" style="transition-duration: 300ms; width: <%#= current_user.customers_vendors.size.to_i*100/current_user.gps_size %>%;"></div>
+                <div class="bar" style="transition-duration: 300ms; width: <%= current_user.articles&.sum(:view_count).to_i*100/Article.all&.sum(:view_count).to_i %>%;"></div>
             </div>
-            <span class="dib l" style='margin-left: 10px;color: #e8e8e8;'><%#= current_user.gps_size %> </span>
+            <span class="dib l" style='margin-left: 10px;color: #e8e8e8;'><%= current_user.articles&.sum(:view_count).to_i %> </span>
         </div>
     </div>
     <ul>

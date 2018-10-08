@@ -28,7 +28,7 @@ class Web::SessionsController < Devise::SessionsController
 
   # 登录后不同角色跳转
   def login_jump_url
-   "/"
+   "/web/center"
   end
 
   # protected

@@ -22,7 +22,8 @@ class VendorsController < ApplicationController
   end
 
   def add_review
-    @articles = Article.all.page(params[:page]).per(5)
+    @articles = Article.all.page(params[:page]).per(4)
+    render :partial => 'add_review' 
   end
 
   # GET /vendors/1

@@ -1,33 +1,44 @@
 class User < ApplicationRecord
+  include FileHandle
+
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
-    def vendors
-      self.customers&.map{|cu|cu.vendors}.flatten.uniq
-    end   
+  has_many :articles    
 
-    def customers_vendors
-      self.customers&.map{|cu|cu.customers_vendors}.flatten.uniq
-    end
+  IMPORT_COLUMNS = {
+    item_no: 0,
+    name: 1,
+    birthday: 2,
+    study_date: 3,
+    title: 4,
+    content: 5
+  }   
 
-    def gps
-      self.customers&.map{|cu|cu.gps_locations}.flatten.uniq
-    end 
+  def self.save_from_hash(hash, current_employee)
+      students = []
+      message = "作品展示信息导入成功！"
+      student = User.find_or_create_by(item_no: hash[:item_no].to_s)
+      student.email = hash[:item_no].to_s
+      student.name = hash[:name].to_s
+      student.password = 11111111
+      student.birthday = hash[:birthday].to_s
+      student.study_date = hash[:study_date].to_s
+      student.content = "生日：#{hash[:birthday]},学习时长：#{hash[:study_date]}"
+      student.save
 
-    def gps_size
-      self.customers&.map{|cu|cu.gps_locations}.flatten.uniq.size
-    end   
+      article = Article.find_or_create_by(user_id: student.id)
+      article.title = hash[:title].to_s
+      article.content = hash[:content].to_s
+      article.item_no = hash[:item_no].to_s
+      article.category_id = 1
+      article.vendor_id = 1
+      article.activity_id = 1
+      article.min_show = "#{student.name}小朋友，学习时长：#{hash[:study_date].to_s},作品：#{hash[:title].to_s}"
+      article.cover_img = "/activities/#{student.item_no}.jpg" 
+      article.save
 
-    def visit_customers
-      self.customers&.map{|cu|cu.customers}.flatten.uniq
-    end  
-
-    def my_from
-      self.customers&.map{|cu|CustomerVisit.my_from(cu)}.flatten.uniq
-    end
-
-   def my_to
-      self.customers&.map{|cu|CustomerVisit.my_to(cu)}.flatten.uniq
-   end 
+      return students , message
+  end
 	
 end

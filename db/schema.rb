@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180930092631) do
+ActiveRecord::Schema.define(version: 20181007080246) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", comment: "活动名称"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180930092631) do
     t.integer "mp3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "item_no", comment: "作品号"
     t.index ["activity_id"], name: "index_articles_on_activity_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
@@ -194,6 +195,8 @@ ActiveRecord::Schema.define(version: 20180930092631) do
     t.text "content", comment: "简介"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "birthday", comment: "生日"
+    t.string "study_date", comment: "学习时长"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["vendor_id"], name: "index_users_on_vendor_id"
