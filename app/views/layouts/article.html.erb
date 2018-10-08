@@ -40,6 +40,16 @@
     <%= yield :scripts %>
 
     <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?975aac64b3e3fc4d4ee9a952d36579a1";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+    <script>
       window._bd_share_config = {
         common : {
           bdText : '欢迎来到奇幻王国', 
