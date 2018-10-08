@@ -42,3 +42,5 @@ RAILS_ENV=production rake db:migrate
 
 
 vendor关联employee,完善供应商管理
+
+图片上传加水印，压缩。
