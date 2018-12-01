@@ -7,8 +7,8 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.paths << Emoji.images_path
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
-Rails.application.config.assets.precompile += %w( web.css center.css index.css )
-Rails.application.config.assets.precompile += %w( web.js web/flutter-hearts-zmt.js )
+Rails.application.config.assets.precompile += %w( web.css center.css index.css user_center.css )
+Rails.application.config.assets.precompile += %w( web.js web/flutter-hearts-zmt.js user_center.js )
 Rails.application.config.assets.precompile += %w( wangEditor.min.css )
 Rails.application.config.assets.precompile += %w( wangEditor.min.js )
 

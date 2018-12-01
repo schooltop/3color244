@@ -1,5 +1,5 @@
 class Web::CenterController < Web::BaseController
-	layout "center"
+	layout "user_center"
 
 	def index
     
