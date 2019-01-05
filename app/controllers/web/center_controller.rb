@@ -2,7 +2,7 @@ class Web::CenterController < Web::BaseController
 	layout "user_center"
 
 	def index
-    
+     
 	end
 
 	def my_vendor
