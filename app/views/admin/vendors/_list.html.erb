@@ -3,10 +3,24 @@
     <span><%= vendor.id%></span>
   </td>
   <td class="center aligned">
-    <%=  vendor.email%>
+    <%= vendor.name %>
   </td>
   <td class="center aligned">
-    <%= vendor.name %>
+    <a href="/admin/vendors/show_gps?id=<%=vendor.cover_img.to_i%>" target="_blank">
+    <%= image_tag vendor.log_img_path ,:class=>"blog-entry-img blog-article-margin",:width=>"100px",:higth=>"100px" %>   
+    </a>
+  </td>
+  <td class="center aligned">
+    <%= vendor.category&.name%>
+  </td>
+  <td class="center aligned">
+    <%= vendor.email%>
+  </td>
+  <td class="center aligned">
+    <%= vendor.mobile%>
+  </td>
+  <td class="center aligned">
+    <%= vendor.website%>
   </td>
   <td class="center aligned">
     <%= link_to edit_admin_vendor_path(vendor.id) , remote: true, class: 'ui icon primary button', 'data-content' => '修改合作企业', 'data-variation' => 'inverted'  do%>

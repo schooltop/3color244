@@ -1,0 +1,82 @@
+    <%= simple_form_for @vendor, url: admin_vendors_path , method: meth, remote: true, :html => { :multipart => true,id:"vendor_form" } do |f| %>
+
+    <div id="form_message" class="two fields red" style="margin-left: 15px;display:none;" ></div>
+
+    <div class="control-group optional form-group field">
+      <%= f.label :content, 'log', class: 'password optional control-label' %>
+      <div class="controls">
+        <%= file_field_tag "log_img", id: 'log_img' %>
+      </div>
+    </div>
+
+    <div class="control-group optional form-group field">
+      <%= f.label :content, '封面', class: 'password optional control-label' %>
+      <div class="controls">
+        <%= file_field_tag "cover_img", id: 'cover_img' %>
+      </div>
+    </div>
+
+
+    <div class="field">
+      <%= f.input :category_id, label: '类型', as: :select, collection: Category.where(mode:"Vendor").collect { |p| [ p.name, p.id ] }, include_blank: '选择类型', input_html: {class: 'ui dropdown fluid'} %>
+    </div>
+
+    <div class="two fields">
+      <%= f.input :parent_name %>
+      <%= f.input :name %>
+    </div>  
+    <div class="two fields">  
+      <%= f.input :office_tel %>
+      <%= f.input :mobile %>
+    </div>  
+    <div class="two fields">    
+      <%= f.input :email %>
+      <%= f.input :website %>
+    </div>  
+    <div class="two fields">    
+      <%= f.input :parent_id %>
+      <%= f.input :employee_id %>
+    </div>  
+    <div class="two fields">    
+      <%= f.input :category_id %>
+      <%= f.input :bd_id %>
+    </div>  
+    <div class="two fields">    
+      <%= f.input :am_id %>
+      <%= f.input :cs_id %>
+    </div>  
+    <div class="two fields">  
+      <%= f.input :gps %>
+      <%= f.input :city %>
+    </div>  
+    <div class="two fields">    
+      <%= f.input :place %>
+      <%= f.input :address %>
+    </div>  
+    <div class="two fields">  
+      <%= f.input :discount %>
+      <%= f.input :view_count %>
+    </div>  
+    <div class="two fields">    
+      <%= f.input :seq %>
+      <%= f.input :tag %>
+    </div> 
+
+    <div class="control-group optional form-group field">
+      <%= f.label :content, 'Content', class: 'password optional control-label' %>
+      <div class="controls">
+        <%= text_area_tag 'vendor[content]', @vendor.content,:style=>"height:300px;", class: 'form-control'  %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="actions ">
+        <div class="ui button primary" id="commition" >提交</div>
+        <div class="ui cancel button">取消</div>
+      </div>
+    </div>
+
+  <% end %>  
+
+  <%= javascript_include_tag 'wangEditor.min' %>
+  <%= stylesheet_link_tag 'wangEditor.min' %>

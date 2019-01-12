@@ -84,7 +84,12 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :vendors
+    resources :vendors do
+      collection do
+        post :upload_image
+        get :show_gps
+      end
+    end 
 
   end
 
